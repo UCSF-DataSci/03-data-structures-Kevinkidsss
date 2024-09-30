@@ -6,7 +6,6 @@ This script reads a text file and counts the frequency of each word, ignoring ca
 
 Usage: python word_frequency.py <input_file>
 
-
 Your task:
 - Complete the word_frequency() function to count word frequencies sorted alphabetically
 - Test your script on 'alice_in_wonderland.txt'
@@ -23,6 +22,14 @@ def word_frequency(text):
     frequencies = {} # Dictionary to store word frequencies
 
     # Your code here
+    words = text.lower().split()
+    for word in words:
+        word = word.strip('.,!?";:()[]{}<>') 
+        if word:
+            if word in frequencies:
+                frequencies[word] += 1
+            else:
+                frequencies[word] = 1
     
     return frequencies
 
@@ -49,3 +56,4 @@ if __name__ == "__main__":
     
     print(f"Word frequencies for '{filename}':")
     print(frequencies)
+    
